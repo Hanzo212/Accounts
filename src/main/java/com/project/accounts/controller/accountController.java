@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/account")
-public class accountController {
+public class AccountController {
 	
 	//inquiry no rekening
 	
