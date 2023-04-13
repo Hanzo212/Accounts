@@ -22,5 +22,7 @@ public class account_nasabah {
 	private double balance;
 	@Column (name = "status_rek")
 	private String status_rek;
-
+	//untuk type rekening debit atau CC
+	@Column (name="type_rek")
+	private String type_rek;
 }
