@@ -34,8 +34,10 @@ public class AccountController {
 
 	// update balance
 	@PutMapping("/act/bal/{nom}/{no-rek}")
-	public @ResponseBody void updateBalance(@RequestBody AccountNasabah accountNasabah, @PathVariable("nom") Double balance, @PathVariable("no-rek")int no_rek) {
+	public String updateBalance(@RequestBody AccountNasabah accountNasabah, @PathVariable("nom") Double balance, @PathVariable("no-rek")int no_rek) {
 		accountService.updateBalance(balance, no_rek);
+		return "Sucess";
+		
 		
 	}
 }
