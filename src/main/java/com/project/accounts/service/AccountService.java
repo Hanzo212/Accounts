@@ -15,9 +15,25 @@ public class AccountService {
 	@Autowired
 	AccountRepo accountRepo;
 	
-	public List<AccountNasabah> getAccountByNoRek(int no_rek) {
-		return accountRepo.accountDetail(no_rek);
+	public void updateBalance(Double balance, int no_rek) {
+		try {
+			Double latestBalance = accountRepo.lastBal(no_rek);
+			System.out.println("latestBalance:"+latestBalance);
+			System.out.println("balance:"+balance);
+			if (latestBalance == 0.0) {
+
+			} else {
+				Double fixBalance = latestBalance - balance;
+				System.out.println("fixBalance:"+fixBalance);
+				if (fixBalance < 0) {
+				} else {
+					 accountRepo.updateBalance(fixBalance, no_rek);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
-	
 
 }
